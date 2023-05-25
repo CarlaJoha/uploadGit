@@ -3,15 +3,19 @@ import "./page.css";
 import { useState } from "react";
 import Image from "next/image";
 import Swal from "sweetalert2";
-import { Post, galery} from "../app/api/upload/route";
+import { Post } from "../app/api/upload/route";
+import logo from "../assets/logoByN.svg";
 
 export default function Home() {
   const [file, setFile] = useState();
+  const [label, setLabel] = useState("");
 
-console.log("galery", galery);
-
+  const handleLabelOnChange = (event) => {
+    setLabel(event.target.files[0].name);
+  };
   const handleFileChange = (event) => {
     setFile(event.target.files[0]);
+    console.log("event.target", event.target.files[0]);
   };
 
   const handleOnSubmit = async (event) => {
@@ -34,7 +38,6 @@ console.log("galery", galery);
           icon: "success",
         });
       }
-      setFile();
     } catch (error) {
       Swal.fire({
         title: "Advertencia",
@@ -42,17 +45,29 @@ console.log("galery", galery);
         icon: "warning",
       });
     }
+    setFile();
+    setLabel("");
   };
 
   return (
     <div className="containerHome">
+      <div className="logo">
+        <Image src={logo} width={230} height={60} alt="logo" />
+      </div>
       <h1 className="title"> Upload a file:</h1>
       <form className="containerForm" onSubmit={handleOnSubmit}>
-        <input
-          className="inputForm"
-          onChange={handleFileChange}
-          type="file"
-          />
+        <div className="containerInput">
+          <label className="divisionInput" onChange={handleLabelOnChange}>
+            {" "}
+            Select file
+            <input
+              className="inputForm"
+              onChange={handleFileChange}
+              type="file"
+            />
+          </label>
+          <label>{label}</label>
+        </div>
         <button className="buttonForm">Upload</button>
       </form>
       {file && (
@@ -64,17 +79,16 @@ console.log("galery", galery);
           className="previewImg"
         />
       )}
-      <section>
-        {
-          galery.map((element, index) => (
-            <ul>
-              <li key={index}>
-                <img src={element} alt="image" />
-              </li>
-            </ul>
-          ))
-        }
-      </section>
+      {/* <section className="containerGalery">
+        {galery.map((element, index) => (
+          <ul>
+            <li key={index}>
+              <Image src={element} alt="image" width={50}
+          height={50} />
+            </li>
+          </ul>
+        ))}
+      </section> */}
     </div>
   );
 }
