@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Swal from "sweetalert2";
 import { Post, galery } from "./api/upload/route";
-import logo from "../assets/logoVioleta";
+import logo from "../assets/logoVioleta..svg";
 // import GaleryImages from "./components/galery";
 
 export default function Home() {
@@ -53,7 +53,7 @@ export default function Home() {
   return (
     <div className="containerHome">
       <div className="logo">
-        <Image src={logo} width={230} height={60} alt="logo" />
+        <Image src={logo} width={60} height={60} alt="logo" />
       </div>
       <h1 className="title"> Upload a file:</h1>
       <section className="uploadSection">
