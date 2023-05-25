@@ -1,7 +1,6 @@
 .containerHome {
   display: flex;
   height: 5em;
-  font-family: var(--font-family);
   flex-direction: column;
   justify-content: center;
   align-items: center;
