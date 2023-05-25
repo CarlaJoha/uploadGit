@@ -92,8 +92,8 @@
   box-shadow: 3px 3px 5px #8b56da;
 }
 .previewImg {
-  width: 10em;
-  height: 10em;
+  width: 15em;
+  height: 15em;
   padding: 3em;
   object-fit: cover;
 }

@@ -4,7 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import Swal from "sweetalert2";
 import { Post, galery } from "./api/upload/route";
-import logo from "../assets/logoByN.svg";
+import logo from "../assets/logoVioleta";
 // import GaleryImages from "./components/galery";
 
 export default function Home() {
