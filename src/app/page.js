@@ -3,8 +3,9 @@ import "./page.css";
 import { useState } from "react";
 import Image from "next/image";
 import Swal from "sweetalert2";
-import { Post } from "../app/api/upload/route";
+import { Post, galery } from "./api/upload/route";
 import logo from "../assets/logoByN.svg";
+// import GaleryImages from "./components/galery";
 
 export default function Home() {
   const [file, setFile] = useState();
@@ -55,40 +56,41 @@ export default function Home() {
         <Image src={logo} width={230} height={60} alt="logo" />
       </div>
       <h1 className="title"> Upload a file:</h1>
-      <form className="containerForm" onSubmit={handleOnSubmit}>
-        <div className="containerInput">
-          <label className="divisionInput" onChange={handleLabelOnChange}>
-            {" "}
-            Select file
-            <input
-              className="inputForm"
-              onChange={handleFileChange}
-              type="file"
-            />
-          </label>
-          <label>{label}</label>
-        </div>
-        <button className="buttonForm">Upload</button>
-      </form>
-      {file && (
-        <Image
-          width={50}
-          height={50}
-          src={URL.createObjectURL(file)}
-          alt="preview file"
-          className="previewImg"
-        />
-      )}
-      {/* <section className="containerGalery">
+      <section className="uploadSection">
+        <form className="containerForm" onSubmit={handleOnSubmit}>
+          <div className="containerInput">
+            <label className="divisionInput" onChange={handleLabelOnChange}>
+              {" "}
+              Select file
+              <input
+                className="inputForm"
+                onChange={handleFileChange}
+                type="file"
+              />
+            </label>
+            <label>{label}</label>
+          </div>
+          <button className="buttonForm">Upload</button>
+        </form>
+        {file && (
+          <Image
+            width={50}
+            height={50}
+            src={URL.createObjectURL(file)}
+            alt="preview file"
+            className="previewImg"
+          />
+        )}
+      </section>
+      <section className="containerGalery">
         {galery.map((element, index) => (
-          <ul>
-            <li key={index}>
-              <Image src={element} alt="image" width={50}
-          height={50} />
+          <ul key={index}>
+            <li className="objList">
+              <img className="img" src={element} alt="imageGalery" />
             </li>
           </ul>
         ))}
-      </section> */}
+      </section>
     </div>
   );
 }

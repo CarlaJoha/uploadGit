@@ -30,6 +30,9 @@ export async function Post(file) {
   }
 };
 
+// const galeryImages = () => {
+
+// }
 ////Configuración para subir a la carpeta public
 // import { writeFile } from "fs/promises";
 // import { NextResponse } from "next/server";
