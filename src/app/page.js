@@ -94,36 +94,3 @@ export default function Home() {
     </div>
   );
 }
-
-/* 
-//Para subida a carpeta public
-const handleOnSubmit = async (event) => {
-    event.preventDefault();
-
-    if (!file) return;
-    try {
-      //archivo que quiero enviar
-      const form = new FormData();
-      form.set("file", file);
-
-      //response: sending file to server con un método post
-      const response = await fetch("api/upload", {
-        method: "POST",
-        body: form,
-      });
-
-      if (response.ok) {
-        Swal.fire({
-          title: "Congratulations",
-          text: "File uploaded",
-          icon: "success",
-        })
-      }
-      console.log(response)
-      setFile()
-
-    } catch (error) {
-      console.log(message.error);
-    }
-  };
- */
